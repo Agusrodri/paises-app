@@ -22,5 +22,36 @@ export class PaisService {
 
   }
 
+  buscarCapital(termino:string):Observable<Country[]>{
+
+    const url=`${this.apiUrl}/capital/${termino}`
+
+    return this.http.get<Country[]>(url);
+
+
+  }
+
+  getPaisPorAlpha(id:string):Observable<Country>{
+ 
+    const url=`${this.apiUrl}/alpha/${id}`
+
+    return this.http.get<Country>(url);
+
+
+  }
+
+  buscarRegion(region:string):Observable<Country[]>{
+
+    const url=`${this.apiUrl}/regionalbloc/${region}?fields=name,capital,alpha2code,flag,population`;
+
+    console.log(url)
+    return this.http.get<Country[]>(url);
+
+
+
+
+
+  }
+
 
 }
